@@ -1,0 +1,13 @@
+javac src/main/java/enset/ma/enset/Test.java -d target/classes/
+cmd //c tree //a //f
+
+java -cp target/classes/ ma.enset.Test
+Hello
+
+git init
+
+/* AJOUT DES FICHIERS DANS GIT pour surveiller les versions
+* le . tout le répertoire
+*/
+
+git add .
