@@ -11,3 +11,90 @@ git init
 */
 
 git add .
+
+/* Ajout un fichier .gitignore pour ne pas prendre en compte certain fichier 
+* le . tout le répertoire
+*/
+
+echo target/>>.gitignore
+
+git init
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory
+
+$ git status
+On branch master
+
+No commits yet
+// le fichier target  été ignoré
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .gitignore
+        new file:   src/main/java/enset/ma/enset/Test.java
+
+// le commit permet de créer un version
+
+$ git commit -m "Inital COMMIT"
+[master (root-commit) cefe237] Inital COMMIT
+ 3 files changed, 21 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 src/main/java/enset/ma/enset/Test.java
+
+$ git log --oneline
+cefe237 (HEAD -> master) Inital COMMIT
+laure@LAPTOP-7FK1IQ77 MINGW64 /d/projet/tuto_git (master)
+$ git branch dev
+
+$ gitcheckout dev
+Switched to branch 'dev'
+M       Commande.txt
+
+laure@LAPTOP-7FK1IQ77 MINGW64 /d/projet/tuto_git (dev)
+
+// modifier le code du fichier
+ code src/main/java/ma/enset/Test.java
+
+$ git status
+On branch dev
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Commande.txt
+        renamed:    src/main/java/enset/ma/enset/Test.java -> src/main/java/ma/enset/Test.java
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/main/java/ma/enset/Test.java
+
+
+$ git add .
+$ git commit -m "Commentaires"
+
+// ouvrir le projet puis aller sur le fichier modifier
+code .
+
+//BASCULER ENTRE LES DEUX BRANCHES EN VERIFIANT LES MODIFICATION DU FICHIER Test.java
+
+//le fichier n'a pas des commentaires
+$ git checkout master
+
+//le fichier n'a  de commentaires
+$ git ckechout dev
+
+// RETOURNER SUR LE BRANCHE MASTER ET FUSIONNER LES FICHIER MODIFIER
+
+$ git checkout master
+
+$ git merge dev
+
+
+/* ajout du projet dans un repositry distance
+creer un repository  ici tuto-git
+*/
+git remote add origin https://github.com/Cheruy-Laurent/tuto-git.git
+
+// les possibilite des remot
+
+$ git remote -v
+origin  https://github.com/Cheruy-Laurent/tuto-git.git (fetch)
+origin  https://github.com/Cheruy-Laurent/tuto-git.git (push)
