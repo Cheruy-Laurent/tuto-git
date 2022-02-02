@@ -1,5 +1,5 @@
 /* 
-commentaire
+commentaire et autre
 */
 package ma.enset;
 public class Test{
